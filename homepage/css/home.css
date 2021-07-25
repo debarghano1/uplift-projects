@@ -1,5 +1,6 @@
 body{
 	font-family: 'Inter', sans-serif;
+	color: #2D3436;
 	margin: 0;
 	padding: 0;
 }
@@ -46,9 +47,19 @@ header nav li{
 
 	width: fit-content;
 	padding: 24px 0;
-	margin: 0 1.8%;
+	margin: 0 0.8vw;
 }
-@media only screen and (max-width: 1073px){
+header nav li + li:before{
+	content: '\2022';
+	color: #FDCB6E;
+	position: relative;
+	left: -0.8vw;
+}
+header nav a.active{
+	color: #2D3436;
+	font-weight: 700;
+}
+@media only screen and (max-width: 1111px){
 	header #layout, header nav{
 		display: none;
 	}
@@ -75,18 +86,19 @@ main{
 	padding: 5px 135px;
 	position: relative;
 	background-image: url("../images/main-background.jpg");
+	/*if background image not available, no background should be used*/
 	background-repeat: no-repeat;
 	background-position: bottom;
 	background-size: initial;
 }
-main > p{
+main > p:first-of-type{
 	font-size: calc(45px + 3vw);
 	font-weight: 800;
 	max-width: 1000px;
 	margin: 60px auto 0;
 	text-align: center;
 }
-main > p span{
+main > p:first-of-type span{
 	display: inline-block;
 	color: #9402CF;
 }
@@ -110,6 +122,7 @@ footer{
 	margin: 10px 0 0;
 	padding: 0 135px 40px;
 	background-image: url("../images/Wave.svg");
+	/*if background image not available, no background should be used*/
 	background-repeat: no-repeat;
 	background-position: bottom;
 	background-size: contain;
@@ -192,9 +205,6 @@ footer #email p{
 footer #email p a{
 	color: #6C5CE7;
 }
-footer #message-form{
-	/*display: grid;*/
-}
 footer #message-form input:focus::placeholder, footer #message-form textarea:focus::placeholder{
 	color: #6C5CE7;
 	font-weight: 700;
@@ -212,24 +222,43 @@ footer #message-form input, footer #message-form textarea{
 	border-radius: 16px; /* Rounded borders */
 	border-width: 0;
 }
+footer #message-form input[name="vis-name"]{
+	background-image: url("../images/icon-user.svg");
+	background-repeat: no-repeat;
+	background-position: right;
+}
 footer #message-form textarea{
 	width: 60%;
+	background-image: url("../images/icon-edit.svg");
+	background-repeat: no-repeat;
+	background-position: top right;
+}
+footer #message-form input[name="e-mail"]{
+	background-image: url("../images/icon-mail.svg");
+	background-repeat: no-repeat;
+	background-position: right;
 }
 footer #message-form form input[type=submit]{
 	display: inline-block;
 	width: 20%;
+	min-width: fit-content;
+	max-width: 170px;
 	background-color: #6C5CE7;
 	font-size: 125%;
 	color: #F8F8F8;
+	text-transform: uppercase;
+	/*workaround for mis aligned */
+	position: relative;
+	bottom: 28px;
 }
 @media only screen and (max-width: 770px){
 	header, main, footer{
 		padding: 0 15px;
 	}
 	header button{
-		border-radius: 10px;
+		border-radius: 8px;
 	}
-	main > p{
+	main > p:first-of-type{
 		max-width: 100vw;
 		width: 425px;
 	}
