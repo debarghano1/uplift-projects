@@ -1,15 +1,17 @@
 body{
 	font-family: 'Inter', sans-serif;
+	font-size: 14px;
 	color: #2D3436;
 	margin: 0;
 	padding: 0;
 }
 a{
 	text-decoration: none;
+	color: #2D3436;
 }
 header{
 	display: grid;
-	grid-template-columns: 50px 150px auto 150px;
+	grid-template-columns: 70px 120px auto 150px;
 	padding:  0 135px;
 	background-color: #FFFFFF;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -21,7 +23,7 @@ header{
 header #layout{
 	grid-column-start: 1;
 	align-self: center;
-	height: 50px;
+	height: 64px;
 }
 header #menu{
 	display: none;
@@ -55,11 +57,15 @@ header nav li + li:before{
 	position: relative;
 	left: -0.8vw;
 }
+header nav a{
+	color: #6C5CE7;
+}
 header nav a.active{
 	color: #2D3436;
 	font-weight: 700;
 }
 @media only screen and (max-width: 1111px){
+	/*changing the nav bar for better fit*/
 	header #layout, header nav{
 		display: none;
 	}
@@ -67,7 +73,10 @@ header nav a.active{
 		display: block;
 		grid-column-start: 1;
 		align-self: center;
-		height: 50px;
+		height: 64px;
+	}
+	header button{
+		margin: 16px auto;
 	}
 }
 header button{
@@ -101,6 +110,9 @@ main > p:first-of-type{
 main > p:first-of-type span{
 	display: inline-block;
 	color: #9402CF;
+}
+main #down-arrow{
+	display: none;
 }
 main > button{
 	height: 82px;
@@ -255,18 +267,40 @@ footer #message-form form input[type=submit]{
 	header, main, footer{
 		padding: 0 15px;
 	}
+	header{
+		grid-template-columns: 45px 80px auto 128px;
+	}
+	header #menu{
+		height: 40px;
+	}
+	header h1{
+		font-size: 1em;
+	}
 	header button{
+		height: 40px;
+		width: 128px;
 		border-radius: 8px;
 	}
 	main > p:first-of-type{
-		max-width: 100vw;
-		width: 425px;
+		max-width: calc(100vw - 30px);
+		font-size: 54px;
+	}
+	main p{
+		text-align: center;
+		font-size: 24px;
+		font-weight: 700;
+	}
+	main #down-arrow{
+		display: block;
+		margin: 8px auto;
 	}
 	main > button{
 		color: #FFFFFF;
 		background-color: #2D3436;
 		left: auto;
 		right: 50px;
+		width: 130px;
+		height: 37px;
 	}
 	footer{
 		background-image: none;
@@ -285,7 +319,7 @@ footer #message-form form input[type=submit]{
 		text-align: center;
 	}
 	footer #email p{
-		font-size: 25px;
+		font-size: 18px;
 		text-align: center;
 		margin: 2% 2%;
 }
